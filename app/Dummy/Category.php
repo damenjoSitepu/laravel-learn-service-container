@@ -9,7 +9,17 @@ namespace App\Dummy;
  */
 
 class Category {
-    private $name = 'Technology';
+    private $name;
+
+    /**
+     * Change name categories if they want
+     * 
+     * @param string
+     */
+    public function __construct(string $name = 'Technology')
+    {
+        $this->name = $name;
+    }
 
     /**
      * Return name of product category

@@ -5,15 +5,25 @@ namespace App\Dummy;
 use App\Dummy\Category;
 
 class Product {
-    private Category $category;
+    /**
+     * Name of product properties
+     */
     private $name = 'Asus Rog';
 
-    public function __construct(Category $category)
-    {
-        $this->category = $category;
-    }
+    /**
+     * Instance of all class - Property promotion
+     * 
+     * @param App\Dummy\Category
+     */
+    public function __construct(public Category $category)
+    {}
 
-    public function getFullInformation() 
+    /**
+     * Get full information of product also with their categories
+     * 
+     * @return string
+     */
+    public function getFullInformation(): string 
     {
         return "{$this->category->getName()} {$this->name}";
     }
