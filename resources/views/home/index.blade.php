@@ -7,6 +7,6 @@
     <title>{{ $title }}</title>
 </head>
 <body>
-    
+    <h1>Title: {{ HomeTitle::getTitle('home_graph') }}</h1>
 </body>
 </html>

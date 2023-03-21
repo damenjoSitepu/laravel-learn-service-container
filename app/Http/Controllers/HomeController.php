@@ -13,7 +13,7 @@ use App\Interfaces\GoodbyeInterface;
 class HomeController extends Controller
 {
     public function __construct(
-        private GoodbyeInterface $goodBye
+        // private GoodbyeInterface $goodBye
     )
     {}
 
@@ -24,8 +24,9 @@ class HomeController extends Controller
      */
     public function index(): View 
     {
-        $sayBye = $this->goodBye->sayBye('Vitamin');
-        dd($sayBye);
+        // $sayBye = $this->goodBye->sayBye('Vitamin');
+        // dd($sayBye);
+
         return view('home.index',[
             'title' => HomeTitle::TITLE['HOME']
         ]);

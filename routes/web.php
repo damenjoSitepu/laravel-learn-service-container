@@ -1,5 +1,6 @@
 <?php
 
+use App\Title\HomeTitleFacade;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,3 +20,8 @@ use Illuminate\Support\Facades\Route;
 
 // Home Path
 Route::get('/', [\App\Http\Controllers\HomeController::class, 'index'])->name('home.index');
+
+Route::get('/phoenix', function() {
+    $title = HomeTitle::getTitle('HOME_DASHBOARD');
+    return $title;
+});

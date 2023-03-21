@@ -197,6 +197,7 @@ return [
         // Our Custom Service Provider
         App\Providers\Master\ProductServiceProvider::class,
         App\Providers\Master\GoodbyeServiceProvider::class,
+        App\Providers\Utilities\TitleServiceProvider::class
     ],
 
     /*
@@ -212,6 +213,7 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         // 'ExampleClass' => App\Example\ExampleClass::class,
+        'HomeTitle' => App\Title\HomeTitleFacade::class
     ])->toArray(),
 
 ];
