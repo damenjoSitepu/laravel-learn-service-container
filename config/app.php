@@ -195,7 +195,8 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         // Our Custom Service Provider
-        App\Providers\Master\ProductServiceProvider::class
+        App\Providers\Master\ProductServiceProvider::class,
+        App\Providers\Master\GoodbyeServiceProvider::class,
     ],
 
     /*
