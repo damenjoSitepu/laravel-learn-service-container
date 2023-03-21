@@ -10,6 +10,12 @@ use Tests\TestCase;
 use App\Dummy\Category;
 use App\Dummy\Product;
 
+// Interfaces
+use App\Interfaces\GoodbyeInterface;
+
+// Service
+use App\Services\GoodbyeService;
+
 class SimpleDependencyTest extends TestCase
 {
     public function test_simple_dependency(): void
@@ -41,8 +47,21 @@ class SimpleDependencyTest extends TestCase
             return new Product($app->make(Category::class));
         });
 
+        $category1 = $this->app->make(Category::class);
         $product1 = $this->app->make(Product::class);
         $product2 = $this->app->make(Product::class);
+        $this->assertSame($category1, $product1->category);
         $this->assertSame($product1, $product2);
+    }
+
+    public function test_service_container_binding_interface_to_class(): void 
+    {
+        $this->app->singleton(GoodbyeInterface::class, function() {
+            return new GoodbyeService;
+        });
+        $sayBye1 = $this->app->make(GoodbyeInterface::class);
+        $sayBye2 = $this->app->make(GoodbyeInterface::class);
+        $this->assertEquals('Goodbye Jojo',$sayBye1->sayBye('Jojo'));
+        $this->assertSame($sayBye1,$sayBye2);
     }
 }
